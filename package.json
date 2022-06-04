@@ -20,12 +20,12 @@
   "author": "SubQuery Team",
   "license": "MIT",
   "devDependencies": {
-    "@subql/cli": "latest",
     "@cosmjs/stargate": "0.28.4",
     "typescript": "^4.4.4"
   },
   "dependencies": {
     "@types/node": "^17.0.21",
+    "arweave": "^1.11.4",
     "pino": "^7.8.0",
     "tslib": "^2.3.1"
   }

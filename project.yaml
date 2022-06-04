@@ -1,10 +1,9 @@
-
 specVersion: 1.0.0
 name: terra-subql-starter
 version: 0.0.1
 runner:
   node:
-    name: '@subql/node-cosmos'
+    name: '@subql/node-Arweave'
     version: '*'
   query:
     name: '@subql/query'
@@ -17,25 +16,17 @@ schema:
   file: ./schema.graphql
 network:
   chainId: cosmoshub-4
-  endpoint: https://rpc.cosmos.network:443
+  endpoint: http://139.59.51.59:1984
 
 dataSources:
-  - kind: cosmos/Runtime
-    startBlock: 10346000
+  - kind: arweave/Runtime
+    startBlock: 500000
     mapping:
       file: "./dist/index.js"
       handlers:
         - handler: handleBlock
-          kind: cosmos/BlockHandler
+          kind: arweave/BlockHandler
         - handler: handleTransaction
-          kind: cosmos/TransactionHandler
-        - handler: handleEvent
-          kind: cosmos/EventHandler
+          kind: arweave/TransactionHandler
           filter:
-            type: transfer
-            messageFilter:
-              type: "/cosmos.bank.v1beta1.MsgSend"
-        - handler: handleMessage
-          kind: cosmos/MessageHandler
-          filter:
-            type: "/cosmos.bank.v1beta1.MsgSend"
+            owner: "sf5ei-je-nwohfmQHyB8kvyhuOAhQlW5GMC7Pmoyss8"
